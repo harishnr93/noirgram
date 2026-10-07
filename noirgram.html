@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Noirgram</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="page">
+    <header class="app-header">
+      <h1>NOIRGRAM</h1>
+      <p class="subtitle">Enter your details and export a personalized PDF health report.</p>
+    </header>
+
+    <div id="form-view">
+      <form id="health-form" class="card" novalidate>
+        <fieldset>
+          <legend>Basic Information</legend>
+
+          <div class="field">
+            <label for="name">Name <span class="req">*</span></label>
+            <input type="text" id="name" name="name" required autocomplete="name" />
+          </div>
+
+          <div class="field-row">
+            <div class="field">
+              <label for="age">Age (years) <span class="req">*</span></label>
+              <input type="number" id="age" name="age" min="1" max="120" required />
+            </div>
+            <div class="field">
+              <label for="gender">Gender <span class="req">*</span></label>
+              <select id="gender" name="gender" required>
+                <option value="" disabled selected>Select</option>
+                <option value="male">Male</option>
+                <option value="female">Female</option>
+                <option value="other">Other</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="field-row">
+            <div class="field">
+              <label for="heightCm">Height (cm) <span class="req">*</span></label>
+              <input type="number" id="heightCm" name="heightCm" min="1" max="300" step="0.1" required />
+            </div>
+            <div class="field">
+              <label for="weightKg">Weight (kg) <span class="req">*</span></label>
+              <input type="number" id="weightKg" name="weightKg" min="1" max="400" step="0.1" required />
+            </div>
+          </div>
+
+          <div class="field-row">
+            <div class="field">
+              <label for="activityLevel">Activity Level <span class="req">*</span></label>
+              <select id="activityLevel" name="activityLevel" required>
+                <option value="" disabled selected>Select</option>
+                <option value="sedentary">Sedentary (little/no exercise)</option>
+                <option value="light">Light (1-3 days/week)</option>
+                <option value="moderate">Moderate (3-5 days/week)</option>
+                <option value="active">Active (6-7 days/week)</option>
+                <option value="very_active">Very Active (hard daily exercise)</option>
+              </select>
+            </div>
+            <div class="field">
+              <label for="goal">Goal <span class="req">*</span></label>
+              <select id="goal" name="goal" required>
+                <option value="" disabled selected>Select</option>
+                <option value="lose">Lose weight</option>
+                <option value="maintain">Maintain weight</option>
+                <option value="gain">Gain weight</option>
+                <option value="build_muscle">Build muscle</option>
+                <option value="improve_fitness">Improve fitness / endurance</option>
+              </select>
+            </div>
+          </div>
+        </fieldset>
+
+        <fieldset>
+          <legend>Health Notes <span class="opt">(Optional)</span></legend>
+          <div class="field">
+            <label for="healthNotes">Health conditions / dietary restrictions</label>
+            <textarea
+              id="healthNotes"
+              name="healthNotes"
+              rows="3"
+              placeholder="e.g. diabetic, vegetarian, lactose intolerant, allergies..."
+            ></textarea>
+          </div>
+        </fieldset>
+
+        <div id="form-errors" class="error-box" hidden></div>
+
+        <div class="actions">
+          <button type="submit" id="submit-btn">Submit</button>
+        </div>
+      </form>
+
+      <p class="legend">
+        <span class="req">*</span> Mandatory field, required for an accurate and safe result.
+        Fields marked <span class="opt">(Optional)</span> are supplementary.
+      </p>
+    </div>
+
+    <div id="results-view" class="card" hidden>
+      <div class="caution-banner">
+        <strong>CAUTION: This report is for reference only.</strong>
+        <p>Kindly visit a doctor or dietitian for more details. We only provide rough reference data, not medical advice.</p>
+      </div>
+
+      <h2 class="results-heading">Basic Information</h2>
+      <div id="results-basic" class="results-rows"></div>
+
+      <h2 class="results-heading">Daily Targets <span class="opt">(Mandatory)</span></h2>
+      <div id="results-mandatory" class="results-rows"></div>
+
+      <h2 class="results-heading">Supplementary <span class="opt">(Optional)</span></h2>
+      <div id="results-optional" class="results-rows"></div>
+
+      <h2 class="results-heading">Training Focus <span class="opt">(Optional)</span></h2>
+      <p id="results-training" class="results-text"></p>
+
+      <h2 class="results-heading">Health Notes <span class="opt">(Optional)</span></h2>
+      <p id="results-notes" class="results-text"></p>
+
+      <div id="export-errors" class="error-box" hidden></div>
+
+      <div class="actions actions-row">
+        <button type="button" id="download-btn">Download PDF</button>
+        <button type="button" id="start-over-btn" class="secondary">Start Over</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="calculations.js"></script>
+  <script src="pdf.js"></script>
+  <script src="pdfExport.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
