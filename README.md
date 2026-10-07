@@ -2,8 +2,7 @@
 
 *noir* (French: black, the monochrome design term) + *-gram* (a written record).
 
-**Noirgram** turns a few basic body stats into a personalized, black-and-white
-health report you can download as a PDF — no install, no account, no server.
+**Noirgram** turns a few basic body stats into a personalised, black-and-white report you can download as a PDF — no install, no account, no server.
 
 ## What it does
 
@@ -22,9 +21,9 @@ Supported goals: **Lose weight**, **Maintain weight**, **Gain weight**,
 calorie target, protein target, and training guidance differently — for
 example, Build Muscle uses a lean calorie surplus and higher protein
 (2.2 g/kg) with a strength-training focus, while Improve Fitness keeps
-calories at maintenance and emphasizes cardio/endurance sessions.
+calories at maintenance and emphasises cardio/endurance sessions.
 
-Every value in the generated PDF is clearly labeled **Mandatory** or
+Every value in the generated PDF is clearly labelled **Mandatory** or
 **Optional**, so you know exactly which numbers matter most. Calculations use
 standard, evidence-based formulas (Mifflin-St Jeor for BMR, activity
 multipliers for TDEE, g/kg protein targets, etc.).
@@ -70,6 +69,6 @@ tablet, or phone browser.
 
 ## Disclaimer
 
-**Caution: this report is for reference only.** Noirgram provides rough
+**Caution: This report is for reference only.** Noirgram provides rough
 estimates based on standard formulas, not medical advice. Kindly visit a
 doctor or dietitian for a full assessment before acting on this information.
