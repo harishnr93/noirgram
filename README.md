@@ -41,7 +41,7 @@ Noirgram is a plain static web app — just one folder, no build tools, no
 dependencies. To "download" it, copy or clone this folder to your computer:
 
 ```
-Noirgram/
+Fitness_ws/
   noirgram.html
   styles.css
   app.js
@@ -52,7 +52,7 @@ Noirgram/
 
 ## How to run it
 
-1. Open the `Noirgram` folder.
+1. Open the `Fitness_ws` folder.
 2. Double-click **`noirgram.html`**.
 
 That's it — it opens in your default browser and runs entirely on your

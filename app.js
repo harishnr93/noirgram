@@ -86,6 +86,7 @@ document.addEventListener('DOMContentLoaded', () => {
     appendRow(mandatory, 'Protein (g/day)', result.proteinG, 'Mandatory');
     appendRow(mandatory, 'Carbohydrates (g/day)', result.carbG, 'Mandatory');
     appendRow(mandatory, 'Fat (g/day)', result.fatG, 'Mandatory');
+    appendRow(mandatory, 'Fibre (g/day)', result.fibreG, 'Mandatory');
     if (result.calorieClamped) {
       const note = document.createElement('p');
       note.className = 'results-text';
@@ -97,6 +98,21 @@ document.addEventListener('DOMContentLoaded', () => {
     optional.innerHTML = '';
     appendRow(optional, 'BMI - Body Mass Index', `${result.bmi} (${result.bmiCategory})`, 'Optional');
     appendRow(optional, 'Water Intake (ml/day)', result.waterMl, 'Optional');
+
+    const micro = document.getElementById('results-micronutrients');
+    micro.innerHTML = '';
+    appendRow(micro, 'Vitamin A (mcg RAE/day)', result.vitaminA_mcg, 'RDA');
+    appendRow(micro, 'Vitamin C (mg/day)', result.vitaminC_mg, 'RDA');
+    appendRow(micro, 'Vitamin D (mcg/day)', result.vitaminD_mcg, 'RDA');
+    appendRow(micro, 'Vitamin E (mg/day)', result.vitaminE_mg, 'RDA');
+    appendRow(micro, 'Vitamin B6 (mg/day)', result.vitaminB6_mg, 'RDA');
+    appendRow(micro, 'Vitamin B12 (mcg/day)', result.vitaminB12_mcg, 'RDA');
+    appendRow(micro, 'Folate / B9 (mcg DFE/day)', result.folate_mcg, 'RDA');
+    appendRow(micro, 'Calcium (mg/day)', result.calcium_mg, 'RDA');
+    appendRow(micro, 'Iron (mg/day)', result.iron_mg, 'RDA');
+    appendRow(micro, 'Magnesium (mg/day)', result.magnesium_mg, 'RDA');
+    appendRow(micro, 'Zinc (mg/day)', result.zinc_mg, 'RDA');
+    appendRow(micro, 'Potassium (mg/day)', result.potassium_mg, 'RDA');
 
     document.getElementById('results-training').textContent = result.trainingFocus;
     document.getElementById('results-notes').textContent =
@@ -120,6 +136,7 @@ document.addEventListener('DOMContentLoaded', () => {
     if (flag) {
       const flagSpan = document.createElement('span');
       flagSpan.className = 'result-flag';
+      flagSpan.dataset.type = flag.toLowerCase();
       flagSpan.textContent = flag;
       row.appendChild(flagSpan);
     }

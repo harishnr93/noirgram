@@ -196,8 +196,9 @@ button:hover {
 }
 
 .result-row {
-  display: flex;
-  justify-content: space-between;
+  display: grid;
+  grid-template-columns: 1fr minmax(90px, auto) auto;
+  align-items: center;
   gap: 12px;
   padding: 6px 4px;
   border-bottom: 1px solid var(--gray-line);
@@ -208,11 +209,20 @@ button:hover {
   font-weight: 600;
 }
 
+.result-row .result-value {
+  text-align: right;
+}
+
 .result-row .result-flag {
   font-size: 0.75rem;
   font-weight: 700;
   color: #555555;
   white-space: nowrap;
+  text-align: right;
+}
+
+.result-row .result-flag[data-type="rda"] {
+  color: #2a7a9b;
 }
 
 .results-text {
