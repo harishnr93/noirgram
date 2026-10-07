@@ -3,7 +3,6 @@
  * results, and triggers the browser download. Depends on pdf.js (PDFDoc).
  */
 
-const PAGE_W = 595;
 const COL_LABEL_X = 55;
 const COL_VALUE_X = 360;
 const COL_FLAG_X = 460;
@@ -126,6 +125,7 @@ function exportHealthReportPdf(input, result) {
   row(doc, 'Protein (g/day)', String(result.proteinG), 'Mandatory');
   row(doc, 'Carbohydrates (g/day)', String(result.carbG), 'Mandatory');
   row(doc, 'Fat (g/day)', String(result.fatG), 'Mandatory');
+  row(doc, 'Fibre (g/day)', String(result.fibreG), 'Mandatory');
   if (result.calorieClamped) {
     doc.ensureSpace(14);
     doc.text(COL_LABEL_X, doc.y, '* Adjusted to a safe minimum calorie floor.', { font: 'F1', size: 8 });
@@ -136,6 +136,21 @@ function exportHealthReportPdf(input, result) {
   sectionHeader(doc, 'SUPPLEMENTARY (OPTIONAL)');
   row(doc, 'BMI - Body Mass Index', `${result.bmi} (${result.bmiCategory})`, 'Optional');
   row(doc, 'Water Intake (ml/day)', String(result.waterMl), 'Optional');
+
+  doc.y -= 6;
+  sectionHeader(doc, 'VITAMINS & MINERALS (RECOMMENDED DAILY)');
+  row(doc, 'Vitamin A (mcg RAE/day)',   String(result.vitaminA_mcg),   'RDA');
+  row(doc, 'Vitamin C (mg/day)',         String(result.vitaminC_mg),    'RDA');
+  row(doc, 'Vitamin D (mcg/day)',        String(result.vitaminD_mcg),   'RDA');
+  row(doc, 'Vitamin E (mg/day)',         String(result.vitaminE_mg),    'RDA');
+  row(doc, 'Vitamin B6 (mg/day)',        String(result.vitaminB6_mg),   'RDA');
+  row(doc, 'Vitamin B12 (mcg/day)',      String(result.vitaminB12_mcg), 'RDA');
+  row(doc, 'Folate / B9 (mcg DFE/day)', String(result.folate_mcg),     'RDA');
+  row(doc, 'Calcium (mg/day)',           String(result.calcium_mg),     'RDA');
+  row(doc, 'Iron (mg/day)',              String(result.iron_mg),        'RDA');
+  row(doc, 'Magnesium (mg/day)',         String(result.magnesium_mg),   'RDA');
+  row(doc, 'Zinc (mg/day)',              String(result.zinc_mg),        'RDA');
+  row(doc, 'Potassium (mg/day)',         String(result.potassium_mg),   'RDA');
 
   doc.y -= 10;
   doc.ensureSpace(30);
